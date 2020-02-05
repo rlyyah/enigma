@@ -44,7 +44,25 @@ public class Enigma {
         return ciphered;
     }
 
+    public String decipherSentence(String sentence){
+        
+        String deciphered = "";
+        String decipheredLetter = "";
 
+        sentence = sentence.replaceAll("\\s+","");
+
+        for( int i=0;i<sentence.length();i++){
+            if (i%2==0){
+                decipheredLetter = String.valueOf(cipher5.charAt(cipher7.indexOf(String.valueOf(sentence.charAt(i)))));
+            }else{
+                decipheredLetter = String.valueOf(cipher5.charAt(cipher6.indexOf(String.valueOf(sentence.charAt(i)))));
+            }
+            
+            deciphered += decipheredLetter;
+        }
+
+        return deciphered;
+    }
 
     public Enigma(Integer key, String Cipher){
 
